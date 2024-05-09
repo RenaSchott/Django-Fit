@@ -1,112 +1,509 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Django-Fit
 
-Welcome R S,
+Being interested in different board games, this Django challenge was an interesting experience. The site should attract all user liking board games and contributing to an open-minded exchange on them.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Displaying responsiveness of the homepage]()
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **April 26, 2024**
+View the live project here: <>
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Table of content
 
-`python3 -m http.server`
+- [Django-Fit ](#django-fit)
+  - [Table of content](#table-of-content)
+  - [UX](#ux)
+    - [Site owner goals](#site-owner-goals)
+    - [Agile planning](#agile-planning)
+      - [Milestones](#milestones)
+      - [User stories](#user-stories)
+        - [As a visitor](#as-a-visitor)
+        - [As the administrator](#as-the-administrator)
+        - [As the developer](#as-the-developer)
+      - [Wireframes](#wireframes)
+      - [Flow Chart](#flow-chart)
+      - [Method](#method)
+        - [POC (proof of concept)](#poc-(proof-of-concept))
+        - [MVP (minimum viable product)](#mvp-(minimum-viable-product))
+      - [Tasks](#tasks)
+    - [Features](#features)
+      - [Homepage](#homepage)
+      - [Detailed review page](#detailed-review-page)
+      - [Comment section](#comment-section)
+      - [Login](#login)
+      - [Register](#register)
+      - [Logout](#logout)
+      - [Features left to implement](#features-left-to-implement)
+  - [Used Technologies](#used-technologies)
+    - [Languages Used](#languages-used)
+    - [Framework, Libraries and Programs](#framework-libraries-and-programs)
+  - [Testing](#testing)
+    - [Manual testing](#manual-testing)
+    - [Testing user stories](#testing-user-stories)
+    - [Validator testing](#validator-testing)
+    - [Unfixed bugs](#unfixed-bugs)
+  - [Deployment](#deployment)
+  - [Credits](#credits)
+    - [Content](#content)
+    - [Media](#media)
+  - [Acknowledgements](#acknowledgements)
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+## UX
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+### Website owner goals
 
-A blue button should appear to click: _Make Public_,
+As the owner of the website, I want to create a contribution to the community by giving them another place to share their opinions on board games.
+Therefore, I set my website owner goals as followed:
+- Within the first two months I want to get 100 registrations of users who created at least one review.
+- Within the first six months I want to have reviews of at least 500 different board games on the website.
+- Each month I want to have at least 100 persons visiting my website.
 
-Another blue button should appear to click: _Open Browser_.
+### Agile planning
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+The development of this project was done with an agile approach.
 
-To log into the Heroku toolbelt CLI:
+Here is an example of the Kanban board from an early development stage:
+![Example of the Kanban board in an early stage]()
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+The project board can be found here: <>.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+#### Milestones
+- **1-Preparation:** Make the preparation for the project as for example user stories, set up, deployment etc.
+- **2-Create landing page:** Create the first page of the homepage
+- **3-Make landing page interactive:** Add search bar, comments, and open review option
+- **4-Accounts:** Create option to make and account and log in and out
+- **5-Review:** Make it possible to review existing and new board games
+- **6-Admin:** Make it possible for the administrator to delete, edit and add content
+There is no final deployment milestone, since the deployment started as early as possible to avoid mistakes in early steps.
 
-------
+The milestones can be found here <https://github.com/RenaSchott/Project4-BoardGameReview/milestones>.
 
-## Release History
+#### User stories
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+The user stories can be found here <https://github.com/RenaSchott/Project4-BoardGameReview/issues>.
 
-**April 26 2024:** Update node version to 16
+##### As the developer
+- **Preparation:** As a **developer**, I need to **set up my project**, so **I can create work on it.** 
+  - **Acceptance Criteria:**
+    - Coding is about to start 
+    - Readme file is up-to-date
+    - Deploy project
 
-**September 20 2023:** Update Python version to 3.9.17.
+##### As a visitor
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+- **View the newest reviews:**  As a **Site User**, I can **view the reviews on the starting page** so that **I can select a specific one to read.**
+  - **Acceptance Criteria:**
+    - homepage is styled and structured
+    -  page is scrollable
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+- **Open a review:** As a **Site User**, I can **open a review** so that **I can read the full text.**
+  - **Acceptance Criteria:**
+    - An expand button is showing
+    - button is clickable
+    - full review is showing
+    - site is scrollable
+- **View ratings:** As a **Site User**, I can **view the ratings on the starting page** so that **I can get an impression of the specific board game.**
+  - **Acceptance Criteria:**
+    - homepage is styled and structured
+    - ratings are shown
+- **Search:** As a **Site User**, I can **use the search bar** so that **I can look for a specific board game.**
+  - **Acceptance Criteria:**
+    - in to top left a search bar is shown
+    - search results will be displayed
+- **View comments:** As a **Site User**, I can **view the comments of other people** so that **I can get to know their opinion on the review.**
+  - **Acceptance Criteria:**
+    - number of comments is shown on the homepage
+    - button is clickable
+    - all existing comments are shown 
+- **Comment on a review:** As a **Site User**, I can **comment on a review** so that **I can share my opinion on that.**
+  - **Acceptance Criteria:**
+    - Clickable button is shown on the website
+    - form is opening
+    - comment is addable
+- **Account registration:** As a **Site User**, I can **register an account** so that **I can add reviews and ratings.**
+  - **Acceptance Criteria:**
+    - Clickable button exists on the homepage
+    - form opens
+    - registration is possible
+- **Create new reviews/ratings:** As a **Site User**, I can **create new reviews and ratings** so that **I can contribute to the site's grows.**
+  - **Acceptance Criteria:**
+    - Button is clickable 
+    - form is opening
+    - review and rating is added
+- **Add my own review/ratings:** As a **Site User**, I can **add my own reviews and ratings on already reviewed board games** so that **I can share my personal opinion.**
+  - **Acceptance Criteria:**
+    - Button is clickable 
+    - form is opening
+    - image can be added
+    - review and rating is added
+- **Manage reviews:** As a **Site User**, I can **create, read, update and delete my reviews** so that **I can manage my contents.**
+  - **Acceptance Criteria:**
+    - reviews/ratings are shown on personal site
+    - button is clickable
+    - form opens
+    - editing is shown
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+##### As the administrator
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+- **Manage comments/reviews:** As **the Admin**, I can **manage the comments and reviews** so that **I can make sure that the site contributes to the growth of the community in a friendly and social way.**
+  - **Acceptance Criteria:**
+    - an overview of the reviews and comments is shown
+    - page is scrollable
+    - complete deletion and part deletion is possible
+    - editing is possible
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+#### Wireframes
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+Here are the drawings of the wireframes for the browsers and for smartphones:
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+**Homepage:**
+![Drawing of the homepage]()
+![Drawing of the homepage]()
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+**Register:**
+![Drawing of the register page]()
+![Drawing of the register page]()
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+**Log In:**
+![Drawing of the login page]()
+![Drawing of the login page]()
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+**Personal user page:**
+![Drawing of the personal user page]()
+![Drawing of the personal user page]()
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+**Add review:**
+![Drawing of the add review page]()
+![Drawing of the add review page]()
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+**Add comment:**
+![Drawing of the add comment page]()
+![Drawing of the add comment page]()
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+#### Flow Chart
 
-------
+Here is the outlined flow chart:
 
-## FAQ about the uptime script
+![Drawn flowchart of the project]()
 
-**Why have you added this script?**
+#### Entity Relationship Diagram
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+Here is the outlined ERD:
 
-**How will this affect me?**
+![Drawn entity relationship diagram of the project]()
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+#### Method
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+##### POC (proof of concept)
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+- Register
+- Log in and out
+- Uploading/Deleting image
+- Adding comments
+- Adding reviews
+- Editing reviews
+- Rating system
 
-**So….?**
+##### MVP (minimum viable product)
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+- Interacting with an existing entry
+    - Commenting on an entry
+- Create new account
+- Logging in and out of the page
+    - Making a new entry
+        - Adding an image of a board game
+        - Adding a review
+        - Rating the board game
+    - Editing own entries
+        - Deleting own image of a board game
+        - Load other image
+        - Editing own reviews
+    - Interacting with other entries
+        - Writing own review
+        - Rating the board game 
 
-**Can I opt out?**
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+#### Tasks
+**In product backlog (with (untested) storypoints)**
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+The tasks can be found within the user stories here: <>.
 
-**Anything more?**
+- **Userstory 1 - Preparation:**
+  - Task 1: Setup workspace
+  - Task 2: Create User Stories with acceptance criteria, Storypoints and Tasks
+  - Task 3: Create Wireframes
+  - Task 4: Create Flowchart
+  - Task 5: Create Entity Relationship Diagram
+  - Task 6: Deploy project (ElephantSQL + Heroku)
+- **Userstory 2 - View the newest reviews:** 
+  - Task 1: Create HTML + CSS --- Storypoint/s: 2
+  - Task 2: Create the models --- Storypoint/s: 1
+  - Task 3: Testing --- Storypoint/s: 2
+- **Userstory 3 - Open a review:**
+  - Task 1: Create HTML + CSS --- Storypoint/s: 2
+  - Task 2: Create the models --- Storypoint/s: 1
+  - Task 3: Testing --- Storypoint/s: 2
+- **Userstory 4 - View ratings:**
+  - Task 1: Create HTML + CSS --- Storypoint/s: 2
+  - Task 2: Create the models --- Storypoint/s: 1
+  - Task 3: Testing --- Storypoint/s: 2
+- **Userstory 5 – Search:**
+  - Task 1: Create HTML + CSS --- Storypoint/s: 1
+  - Task 2: Create the models --- Storypoint/s: 1
+  - Task 3: Testing --- Storypoint/s: 2
+- **Userstory 6 - View comments:**
+  - Task 1: Create HTML + CSS --- Storypoint/s: 1
+  - Task 2: Create the models --- Storypoint/s: 1
+  - Task 3: Testing --- Storypoint/s: 2
+- **Userstory 7 - Comment on a review:**
+  - Task 1: Design User Interface --- Storypoint/s: 4
+  - Task 2: Create HTML + CSS --- Storypoint/s: 2
+  - Task 3: Create the models --- Storypoint/s: 1
+  - Task 4: Testing --- Storypoint/s: 2
+- **Userstory 8 - Account registration:**
+  - Task 1: Design User Interface --- Storypoint/s: 8
+  - Task 2: Create HTML + CSS --- Storypoint/s: 4
+  - Task 3: Create the models --- Storypoint/s: 2
+  - Task 4: Testing --- Storypoint/s: 1
+- **Userstory 9 - Create new reviews/ratings:**
+  - Task 1: Design User Interface --- Storypoint/s: 16
+  - Task 2: Create HTML + CSS --- Storypoint/s: 8
+  - Task 3: Create the models --- Storypoint/s: 4
+  - Task 4: Testing --- Storypoint/s: 4
+- **Userstory 10 - Add my own review/ratings:**
+  - Task 1: Design User Interface --- Storypoint/s: 8
+  - Task 2: Create HTML + CSS --- Storypoint/s: 4
+  - Task 3: Create the models --- Storypoint/s: 4
+  - Task 4: Testing --- Storypoint/s: 4
+- **Userstory 11 - Manage reviews:**
+  - Task 1: Design User Interface --- Storypoint/s: 16
+  - Task 2: Create HTML + CSS --- Storypoint/s: 8
+  - Task 3: Create the models --- Storypoint/s: 8
+  - Task 4: Testing --- Storypoint/s: 4
+- **Userstory 12 - Manage comments/reviews:**
+  - Task 1: Design User Interface --- Storypoint/s: 32
+  - Task 2: Create HTML + CSS --- Storypoint/s: 16
+  - Task 3: Create the models --- Storypoint/s: 8
+  - Task 4: Testing --- Storypoint/s: 8
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
 
----
+## Features
 
-Happy coding!
+### Homepage
+
+-
+
+![Screenshot of the homepage]()
+![Screenshot of the homepage]()
+![Screenshot of the homepage]()
+
+### Detailed review page
+
+- 
+
+![Screenshot of the detailed page]()
+
+### Comment section
+
+- 
+
+![Screenshot of the comment section]()
+
+### Login
+
+- 
+
+![Screenshot of the login button]()
+
+### Register
+
+- 
+
+![Screenshot of the register button]()
+
+### Logout
+
+- 
+
+![Screenshot of the logout button]()
+
+
+### Features left to implement
+
+There is the possibility to integrate:
+
+- **V2 (version 2)**
+    - Rating system 
+        - Divided up for each year
+        - Divided into complexity
+        - Divided into family, connoisseur and expert board game
+    - Images 
+        - Expand upload capacity
+    - Adding chat/message function
+    - Adding extra forum for further exchange
+    - Edit own account
+        - Personal data
+        - Upload personal image
+        - Delete Account
+
+## Used Technologies
+
+### Languages Used
+
+- HTML, CSS, Python, Jinja
+
+### Framework, Libraries and Programs
+
+- Frameworks were used to speed up 
+    - Django
+    - Bootstrap
+- Libraries 
+    - Gunicorn
+      - was used as python http server for WSGI applications
+    - Pyscopg2
+      - was used as PostgresSQL Database adapter
+    - Django-allauth
+      - was used to create user authentication
+    - Django-crispy-forms
+      - was used to control rendering behavior of Django forms
+    - Whitenoise
+      - was used to serve static non-media files
+    - Summernote
+      - was used as WYSIWYG editor
+- Programs
+    - Balsamiq
+        - was used to create the wireframes
+    - Lucidchart
+        - was used to create the flow chart
+    - dbdiagram
+        - was used to create the entity relationship diagram
+    - GitHub
+        - was used to store the project site
+    - Gitpod
+        - was used to write the code and commit it to GitHub
+    - Heroku 
+        - was used to deploy the project 
+    - CI Database Maker
+        - was used for storing the database
+    - Cloudinary
+        - was used to serve static media files  
+    - Validator W3
+        - was used to validate the HTML
+    - Validator W3C
+        - was used to validate the CSS
+    - JSHint
+        - was used to validate the JavaScript
+    - CI Python Linter
+        - was used for finding errors
+    - Languagetool
+        - was used to check the spelling and grammar in the README file
+
+
+## Testing
+
+### Manual testing
+
+- The site was tested on different browsers: Chrome, Firefox and Safari.
+- I confirmed that the page is readable.
+- I confirmed that links are functioning.
+
+| **Feature** | **Expect** | **Action** | **Result** |
+|---------------------|--------------------|--------------------------|------------------------------|
+| 
+
+
+### Testing user stories
+
+| **Expectation - User** | **Result**|
+|--------------|------------|
+| |
+
+
+**As the developer**
+
+| **Expectation - Administrator** | **Result**|
+|--------------|------------|
+|  |
+
+
+**As the administrator**
+
+| **Expectation - Administrator** | **Result**|
+|--------------|------------|
+|  |
+
+
+### Validator testing
+
+- **Validator W3**
+
+All sites tested - each result:
+![Screenshot of one result of the testings]()
+
+- **Validator W3C**
+
+Test results:
+![Screenshot of the errors]()
+
+- **JSHint**
+
+Test result:
+![Screenshot of one undefined variable]()
+
+
+- **CI Python Linter**
+
+Test results of files with custom written code:
+![Screenshot of one result of the testings]()
+
+
+- **Lighthouse**
+
+The results of the lighthouse testing are sufficient.
+![Screenshot of the lighthouse results]()
+
+### Unfixed bugs
+
+- 
+
+## Deployment
+
+The deployment was done after the tutorial in the course content using <https://www.heroku.com/>, <https://cloudinary.com/>, <https://dbs.ci-dbs.net/> and <https://whitenoise.readthedocs.io/en/latest/>.
+
+For deployment:
+- Some libraries have to be installed:
+  - Gunicorn
+  - psycopg2
+  - Cloudinary
+  - Whitenoise
+- A Heroku account must be created.
+- Set your GitHub repository to public.
+- Create a new app and linked to the correct repo in GitHub while choosing Automatic Deploys for easier handling.
+- Create a database with Ci database Maker and link it to the project and the heroku app.
+- Hide sensitive information in the env.py with the .gitignore file and update the settings.py file.
+- Connect the project and Heroku app with Cloudinary.
+- Then deploy
+ 
+The link to the live page can be found here: [Link to live page] (<https://bg-review-p4-acb57fa06b77.herokuapp.com/>)
+
+
+## Credits
+
+### Content
+
+The content of this project was inspired by 
+  
+
+Inspirations for specific problems were taken from the following websites:
+  - <>
+  
+### Media
+
+Images were downloaded from <https://pixabay.com/de/>
+- 
+
+## Acknowledgements
+
+- I would love to thank the following persons:
+  - 
