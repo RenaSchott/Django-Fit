@@ -1,4 +1,3 @@
-"""
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -18,4 +17,3 @@ class MainCategory(models.Model):
 
     def get_friendly_name(self):
         return self.friendly_name
-"""
